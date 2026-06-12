@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  tags      String   @default("")
+  readTime  Int      @default(5)
+  published Boolean  @default(false)
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  tagline     String
+  description String
+  content     String   @default("")
+  tech        String   @default("")
+  status      String   @default("Active")
+  color       String   @default("#00D9FF")
+  year        Int      @default(2026)
+  featured    Boolean  @default(false)
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  type        String   @default("ebook")
+  subtitle    String   @default("")
+  description String
+  price       Float    @default(0)
+  level       String   @default("Beginner")
+  pages       Int      @default(0)
+  emoji       String   @default("")
+  color       String   @default("#00D9FF")
+  features    String   @default("")
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  items         String   @default("[]")
+  total         Float    @default(0)
+  customerName  String
+  customerEmail String
+  status        String   @default("pending")
+  createdAt     DateTime @default(now())
+}

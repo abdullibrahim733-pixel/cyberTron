@@ -1,0 +1,39 @@
+import { prisma } from "@/lib/prisma";
+import { ProjectCard } from "@/components/ProjectCard";
+
+export const dynamic = "force-dynamic";
+
+export default async function ProjectsPage() {
+  const projects = await prisma.project.findMany({
+    where: { published: true },
+    orderBy: { year: "desc" },
+  });
+
+  return (
+    <div className="pt-20 pb-16 px-6 max-w-[1200px] mx-auto">
+      <div className="flex items-center gap-3 mb-10 mt-8">
+        <span className="font-mono text-[10px] text-cyan uppercase tracking-[0.1em] bg-cyandim border border-[rgba(0,217,255,0.22)] px-2.5 py-0.5 rounded-full">
+          gallery
+        </span>
+        <div>
+          <h1 className="text-[32px] font-semibold font-display">Projects</h1>
+          <p className="text-sm text-muted mt-0.5">
+            Compilers, robots, platforms — built for Africa.
+          </p>
+        </div>
+      </div>
+
+      {projects.length === 0 ? (
+        <div className="text-center py-20">
+          <p className="font-mono text-sm text-muted">No projects yet.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map((p) => (
+            <ProjectCard key={p.id} {...p} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
