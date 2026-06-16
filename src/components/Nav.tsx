@@ -8,6 +8,7 @@ import { useCart } from "./CartProvider";
 const links = [
   { href: "/", label: "./home" },
   { href: "/projects", label: "projects" },
+  { href: "/training", label: "training" },
   { href: "/blog", label: "blog" },
   { href: "/shop", label: "shop" },
 ];

@@ -7,12 +7,13 @@ const lines = [
   { cmd: false, text: "Ibrahim Abdull (Cyborg)", br: true },
   { cmd: true, text: "cat role.txt" },
   { cmd: false, text: "Founder & CTO @ UMG Africa Ltd", br: true },
-  { cmd: false, text: "Embedded Engineer · Systems Programmer" },
+  { cmd: false, text: "AI Agent & Automation Master · Embedded Engineer" },
   { cmd: true, text: "ls projects/" },
   { cmd: false, text: "Ghost/   Siafu/   JengaConnect/   AuraClock/   Msingi/", accent: true },
   { cmd: true, text: "cat manifesto.txt" },
   { cmd: false, text: "Building intelligent machines for Africa.", br: true },
-  { cmd: false, text: "19 years old · Arusha, Tanzania" },
+  { cmd: false, text: "Training the next generation of AI builders.", br: true },
+  { cmd: false, text: "19 years old · South Africa & Tanzania" },
 ];
 
 export function TerminalHero() {

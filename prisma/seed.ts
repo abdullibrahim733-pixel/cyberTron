@@ -68,6 +68,17 @@ async function main() {
       published: true,
       featured: false,
     },
+    {
+      title: "AI Agents in Production: Building Autonomous Systems That Actually Work",
+      slug: "ai-agents-in-production",
+      excerpt:
+        "From LangChain to custom orchestrators — lessons from deploying AI agents for African businesses. Why most agent frameworks fail in production and what to do instead.",
+      content: `## The Hype Problem\n\nEvery week there is a new AI agent framework. LangChain, CrewAI, AutoGen, OpenAI Assistants. They all promise the same thing: give an LLM tools and it will autonomously solve your problems. In practice, agents in production fail in predictable ways — infinite loops, hallucinated tool calls, context drift, and cost blowouts.\n\nAfter deploying agents for customer support, data entry, and automation workflows across African businesses, I have learned what works and what does not.\n\n## The Architecture That Works\n\nForget autonomous agents. Build **supervised agent pipelines**:\n\n\`\`\`\nUser Input → Router LLM (classifies intent) → Task-Specific Agent (narrow scope) → Validator (checks output) → Execute or Reject\n\`\`\`\n\nThe router is a small, cheap model (GPT-4o-mini or Claude Haiku). The task agent is a focused prompt with access to exactly 2-3 tools. The validator is a separate LLM call that checks if the output meets quality criteria before execution.\n\n## What I Teach\n\nIn my AI Agent training, I cover:\n\n1. **Agent Architecture Patterns** — When to use single-agent, multi-agent, or supervisor patterns\n2. **Tool Design** — Building reliable function calls that agents cannot misuse\n3. **Memory & Context Management** — Sliding windows, summarization, and RAG for long-running agents\n4. **Observability** — Tracing, logging, and debugging agent decision chains\n5. **Cost Optimization** — Routing to appropriate model sizes, caching strategies\n6. **Production Deployment** — Error handling, rate limiting, fallback chains, human-in-the-loop\n\n## The African Context\n\nAfrican businesses face unique challenges: unreliable APIs, expensive token pipelines, limited LLM provider support. Training must account for these constraints. I build agents that work with intermittent connectivity and fall back gracefully when APIs are unreachable.\n\n## Result\n\nStudents who complete the training ship production agents — not toy demos. A customer support agent handling 200+ tickets/day. A data extraction pipeline processing 10,000+ documents/month. Automation workflows saving 40+ hours/week.`,
+      tags: "AI,Agents,Automation,Training",
+      readTime: 14,
+      published: true,
+      featured: true,
+    },
   ];
 
   for (const post of posts) {
@@ -298,6 +309,38 @@ async function main() {
         "Single Siafu swarm node. ESP32-S3, LoRa SX1276, soil moisture sensor, LiPo battery, weatherproof enclosure.",
       features:
         '["ESP32-S3 Board","LoRa SX1276 Module","Soil Moisture Sensor","LiPo + Weatherproof Case","Solar Charging","Mounting Hardware"]',
+      published: true,
+    },
+    {
+      name: "AI Agent & Automation Mastery",
+      slug: "ai-agent-automation-mastery",
+      type: "course",
+      subtitle: "Build Production AI Agents",
+      price: 149.99,
+      level: "Intermediate",
+      pages: 0,
+      emoji: "🤖",
+      color: "#FF5500",
+      description:
+        "Hands-on training to design, build, and deploy AI agents that actually work in production. Covers architecture patterns, tool design, memory, observability, and deployment for African and global contexts.",
+      features:
+        '["6 Modules + Capstone","Agent Architecture Patterns","Tool & Function Design","Memory & Context Management","Observability & Debugging","Production Deployment","Lifetime Access + Updates"]',
+      published: true,
+    },
+    {
+      name: "AI Automation Bootcamp",
+      slug: "ai-automation-bootcamp",
+      type: "course",
+      subtitle: "Automate Anything with AI",
+      price: 99.99,
+      level: "Beginner",
+      pages: 0,
+      emoji: "⚡",
+      color: "#00FF88",
+      description:
+        "Learn to automate business workflows using AI agents, no coding background required. Build chatbots, data pipelines, and automation workflows for real business problems.",
+      features:
+        '["4 Weekend Sessions","No-Code Agent Builders","Workflow Automation","Chatbot Development","Data Pipeline Basics","Certificate of Completion"]',
       published: true,
     },
   ];

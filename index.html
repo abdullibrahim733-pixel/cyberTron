@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ibrahim Abdull (Cyborg) — Embedded Engineer & Builder</title>
+<title>Ibrahim Abdull (Cyborg) — AI Agent & Automation Master</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -179,7 +179,8 @@ footer{border-top:1px solid var(--b);padding:36px 24px;text-align:center}
     <span class="p">❯</span>&nbsp;<span class="h">cyborg</span><span class="s">@umg</span><span class="s">:~$</span>
   </a>
   <div class="nav-links">
-    <button class="nl active" data-s="home"   onclick="goTo('home')">./home</button>
+    <button class="nl active" data-s="home"     onclick="goTo('home')">./home</button>
+    <button class="nl"        data-s="training" onclick="goTo('training')">training</button>
     <button class="nl"        data-s="projects" onclick="goTo('projects')">projects</button>
     <button class="nl"        data-s="blog"     onclick="goTo('blog')">blog</button>
     <button class="nl"        data-s="shop"     onclick="goTo('shop')">shop</button>
@@ -202,8 +203,23 @@ footer{border-top:1px solid var(--b);padding:36px 24px;text-align:center}
   </div>
   <div class="hero-ctas">
     <button class="bp" onclick="goTo('projects')">View Projects</button>
+    <button class="bg" onclick="goTo('training')">AI Agent Training</button>
     <button class="bg" onclick="goTo('shop')">Shop Books &amp; Kits</button>
     <button class="bg" onclick="goTo('blog')">Read Blog</button>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section id="training">
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="slabel" style="color:var(--orange);background:var(--orangedim);border-color:rgba(255,85,0,0.22)">training</span>
+      <div>
+        <h2 class="stitle">AI Agent &amp; Automation Training</h2>
+        <p class="ssub">Hands-on training by Ibrahim Abdull — AI Agent &amp; Automation Master</p>
+      </div>
+    </div>
+    <div class="sgrid" id="traingrid"></div>
   </div>
 </section>
 
@@ -260,11 +276,12 @@ footer{border-top:1px solid var(--b);padding:36px 24px;text-align:center}
     <a class="fl" href="https://github.com" target="_blank">GitHub</a>
     <a class="fl" href="mailto:ibrahim@umgafrica.com">Email</a>
     <a class="fl" href="https://twitter.com" target="_blank">Twitter</a>
+    <a class="fl" onclick="goTo('training')">Training</a>
     <a class="fl" onclick="goTo('shop')">Shop</a>
     <a class="fl" onclick="goTo('blog')">Blog</a>
     <a class="fl" onclick="goTo('projects')">Projects</a>
   </div>
-  <p class="fcopy">&#169; 2026 Ibrahim Abdull (Cyborg) &mdash; UMG Africa Ltd, Arusha, Tanzania</p>
+  <p class="fcopy">&#169; 2026 Ibrahim Abdull (Cyborg) &mdash; UMG Africa Ltd, South Africa &amp; Tanzania</p>
 </footer>
 
 <!-- POST MODAL -->
@@ -346,6 +363,20 @@ float ms = (float)(DWT->CYCCNT - t0) / (SystemCoreClock/1000.0f);</code>
 <p>Each node monitors RSSI and SNR and steps up the spreading factor when signal quality drops below threshold. Fast communication when nodes are close; robust when far apart. The cost is implementation complexity and non-uniform airtime across the mesh.</p>
 <h3>The Deeper Problem</h3>
 <p>The real design challenge is building a swarm algorithm that degrades gracefully when mesh connectivity drops. Each node maintains a belief state about the global swarm configuration based on received messages. When connectivity is high, beliefs converge quickly. When low, beliefs diverge — but the swarm continues functioning locally while the mesh reconnects. This probabilistic approach is the key to field-deployable swarm intelligence.</p>`},
+  {id:'5',title:'AI Agents in Production: Building Autonomous Systems That Actually Work',exc:'From LangChain to custom orchestrators — lessons from deploying AI agents for African businesses. Why most agent frameworks fail in production and what to do instead.',date:'2026-06-10',tags:['AI','Agents','Automation','Training'],rt:14,content:`
+<h3>The Hype Problem</h3>
+<p>Every week there is a new AI agent framework. LangChain, CrewAI, AutoGen, OpenAI Assistants. They all promise the same thing: give an LLM tools and it will autonomously solve your problems. In practice, agents in production fail in predictable ways — infinite loops, hallucinated tool calls, context drift, and cost blowouts.</p>
+<p>After deploying agents for customer support, data entry, and automation workflows across African businesses, I have learned what works and what does not.</p>
+<h3>The Architecture That Works</h3>
+<p>Forget autonomous agents. Build supervised agent pipelines:</p>
+<code>User Input → Router LLM (classifies intent) → Task-Specific Agent (narrow scope) → Validator (checks output) → Execute or Reject</code>
+<p>The router is a small, cheap model (GPT-4o-mini or Claude Haiku). The task agent is a focused prompt with access to exactly 2-3 tools. The validator is a separate LLM call that checks if the output meets quality criteria before execution.</p>
+<h3>What I Teach</h3>
+<p>In my AI Agent training, I cover: Agent Architecture Patterns, Tool Design, Memory & Context Management, Observability, Cost Optimization, and Production Deployment.</p>
+<h3>The African Context</h3>
+<p>African businesses face unique challenges: unreliable APIs, expensive token pipelines, limited LLM provider support. Training must account for these constraints. I build agents that work with intermittent connectivity and fall back gracefully when APIs are unreachable.</p>
+<h3>Result</h3>
+<p>Students who complete the training ship production agents — not toy demos. A customer support agent handling 200+ tickets/day. A data extraction pipeline processing 10,000+ documents/month. Automation workflows saving 40+ hours/week.</p>`},
 ];
 
 const PRODUCTS=[
@@ -357,6 +388,8 @@ const PRODUCTS=[
   {id:'kt2',type:'kit',name:'AuraClock S3 Kit',sub:'Build Your Focus Device',price:38.00,desc:'ESP32-S3, OLED, haptic motor, IMU. Hack Club Fallout 2026 design. Open-source Rust firmware included.',inc:['All PCB components','OLED display (0.96")','Haptic driver IC','Open-source Rust firmware'],color:'#A855F7',emo:'&#8987;'},
   {id:'kt3',type:'kit',name:'STM32 Embedded Rust Starter',sub:'Begin Your Firmware Journey',price:35.00,desc:'STM32F4xx board, ST-Link V2 debugger, breadboard, jumper wires, sensors pack. Pairs with the Embedded Rust e-book.',inc:['STM32F4xx dev board','ST-Link V2 debugger','Breadboard + wires','Sensors pack (5 types)'],color:'#00FF88',emo:'&#128268;'},
   {id:'kt4',type:'kit',name:'Siafu Node Kit',sub:'LoRa + ESP32-S3 Swarm Node',price:52.00,desc:'Single Siafu swarm node. ESP32-S3, LoRa SX1276, soil moisture sensor, LiPo battery, weatherproof enclosure.',inc:['ESP32-S3 board','LoRa SX1276 module','Soil moisture sensor','LiPo + weatherproof case'],color:'#F59E0B',emo:'&#127807;'},
+  {id:'co1',type:'course',name:'AI Agent & Automation Mastery',sub:'Build Production AI Agents',price:149.99,level:'Intermediate',desc:'Hands-on training to design, build, and deploy AI agents that actually work in production.',color:'#FF5500',emo:'&#129302;',feat:['6 Modules + Capstone','Agent Architecture Patterns','Tool & Function Design','Memory & Context Management','Production Deployment']},
+  {id:'co2',type:'course',name:'AI Automation Bootcamp',sub:'Automate Anything with AI',price:99.99,level:'Beginner',desc:'Learn to automate business workflows using AI agents. Build chatbots, data pipelines, and automation workflows.',color:'#00FF88',emo:'&#9889;',feat:['4 Weekend Sessions','No-Code Agent Builders','Workflow Automation','Chatbot Development','Certificate of Completion']},
 ];
 
 // STATE
@@ -524,12 +557,13 @@ const SEQ=[
   {c:0,t:'Ibrahim Abdull (Cyborg)',br:1},
   {c:1,t:'cat role.txt'},
   {c:0,t:'Founder & CTO @ UMG Africa Ltd',br:1},
-  {c:0,t:'Embedded Engineer · Systems Programmer'},
+  {c:0,t:'AI Agent & Automation Master · Embedded Engineer'},
   {c:1,t:'ls projects/'},
   {c:0,t:'Ghost/   Siafu/   JengaConnect/   AuraClock/   Msingi/',ac:1},
   {c:1,t:'cat manifesto.txt'},
   {c:0,t:'Building intelligent machines for Africa.',br:1},
-  {c:0,t:'19 years old · Arusha, Tanzania'},
+  {c:0,t:'Training the next generation of AI builders.',br:1},
+  {c:0,t:'19 years old · South Africa & Tanzania'},
 ];
 
 let tli=0,tci=0,done=[];
@@ -556,6 +590,30 @@ function tTick(){
   }
 }
 
+// TRAINING
+function renderTraining(){
+  const prods=PRODUCTS.filter(p=>p.type==='course');
+  document.getElementById('traingrid').innerHTML=prods.map(p=>`
+    <div class="g prcard">
+      <div class="prcov" style="background:linear-gradient(135deg,${p.color}20,${p.color}08)">
+        <span>${p.emo}</span>
+        ${p.level?`<span class="prlvl">${p.level}</span>`:''}
+      </div>
+      <div class="prbody">
+        <div class="prname">${p.name}</div>
+        <div class="prsub" style="color:${p.color}">${p.sub}</div>
+        <p class="prdesc">${p.desc}</p>
+        ${p.feat?`<ul class="princ">${p.feat.map(i=>`<li>${i}</li>`).join('')}</ul>`:''}
+      </div>
+      <div class="prfoot">
+        <div class="prprice"><span class="cur">USD</span> $${p.price.toFixed(2)}</div>
+        <button class="buybtn" onclick="buyCourse('${p.id}')">Enroll Now</button>
+      </div>
+    </div>`).join('');
+}
+
+function buyCourse(id){showToast('Enrollment coming soon — email ibrahim@umgafrica.com for details');}
+
 // NAVIGATION
 function goTo(id){
   const el=document.getElementById(id);if(!el)return;
@@ -564,7 +622,7 @@ function goTo(id){
 }
 
 window.addEventListener('scroll',()=>{
-  const ids=['home','projects','blog','shop'];
+  const ids=['home','training','projects','blog','shop'];
   let active='home';
   ids.forEach(id=>{
     const el=document.getElementById(id);
@@ -587,6 +645,7 @@ function showToast(msg){
 renderProjects();
 renderPosts();
 renderShop();
+renderTraining();
 updateBadge();
 setTimeout(tTick,700);
 </script>

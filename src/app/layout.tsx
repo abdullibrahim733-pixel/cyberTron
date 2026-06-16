@@ -24,13 +24,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ibrahim Abdull (Cyborg) — Embedded Engineer & Builder",
+  title: "Ibrahim Abdull (Cyborg) — AI Agent & Automation Master",
   description:
-    "Embedded engineer, Rust systems programmer, and founder at UMG Africa Ltd. Building intelligent machines for Africa.",
+    "AI agent & automation master, embedded engineer, and founder at UMG Africa Ltd. Building intelligent machines and training the next generation of AI builders in Africa.",
   openGraph: {
     title: "Ibrahim Abdull (Cyborg)",
     description:
-      "Embedded engineer, Rust systems programmer, and founder at UMG Africa Ltd.",
+      "AI agent & automation master, embedded engineer, and founder at UMG Africa Ltd.",
     type: "website",
   },
 };
